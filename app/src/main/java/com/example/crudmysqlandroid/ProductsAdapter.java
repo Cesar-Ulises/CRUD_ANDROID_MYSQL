@@ -45,7 +45,21 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         //Toast.makeText(mCtx, ""+im, Toast.LENGTH_SHORT).show();
 
 
+        if(im.isEmpty()) {
+            holder.imageView.setImageResource(R.drawable.imgnoencontrada);
+            holder.textViewCodigo1.setText(String.valueOf(product.getCodigo()));
+            holder.textViewDescripcion1.setText(product.getDescripcion());
+            holder.textViewPrecio1.setText(String.valueOf(product.getPrecio()));
 
+        }else{
+            Glide.with(mCtx)
+                    .load(product.getImagen())
+                    .into(holder.imageView);
+
+            holder.textViewCodigo1.setText(String.valueOf(product.getCodigo()));
+            holder.textViewDescripcion1.setText(product.getDescripcion());
+            holder.textViewPrecio1.setText(String.valueOf(product.getPrecio()));
+        }
 
     }
 
