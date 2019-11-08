@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity{
 
     private EditText et_codigo, et_descripcion, et_precio;
     private Button btn_guardar, btn_consultaCodigo, btn_consultaDescripcion, btn_eliminar, btn_actualizar;
-
+    final Context context = this;
     boolean inputEt=false;
     boolean inputEd=false;
     boolean input1=false;
@@ -335,6 +335,29 @@ public class MainActivity extends AppCompatActivity{
             DialogConfirmacion();
             return true;
         }
+
+        //Acerca de..
+        if (id == R.id.mAcerca){
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                    context);
+            // Establecer el título
+            alertDialogBuilder.setTitle("Proyecto creado Por");
+            // Establecer mensaje de diálogo
+            alertDialogBuilder
+                    .setMessage("César Ulises\nSis 21B")
+                    .setCancelable(false)
+                    .setNegativeButton("Aceptar", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // Si presiona que Aceptar se cerrara el mensaje de dialogo
+                            dialog.cancel();
+                        }
+                    });
+            // Crear mensaje AlertDialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            // Mostrar alert
+            alertDialog.show();
+        }
+
 
         return super.onOptionsItemSelected(item);
     }

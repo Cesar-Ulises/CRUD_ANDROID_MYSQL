@@ -21,6 +21,9 @@
         android:orderInCategory="3"
         android:title="@string/salir"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/mAcerca"
+        android:title="Acerca de" />
 
 
     <!--<item
